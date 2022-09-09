@@ -13,6 +13,7 @@ var (
 	dg *discordgo.Session
 )
 
+// Initialize the bot with the token
 func Init(token string) {
 	var err error
 	dg, err = discordgo.New("Bot " + token)
@@ -22,6 +23,7 @@ func Init(token string) {
 	}
 }
 
+// This function will be called (due to AddHandler above) every time a new message is created on any channel that the autenticated bot has access to.
 func Run() {
 	// Register the messageCreate func as a callback for MessageCreate events.
 	dg.AddHandler(messageCreate)
